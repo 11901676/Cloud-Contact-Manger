@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content}, ~{::title})}">
+<!-- This is the about page that extends the base HTML template. -->
+
+<head>
+    <title th:text="${loggedInUser.displayName} + ' | Dashboard'">Dashboard Page</title>
+</head>
+
+<body>
+    <div id="content">
+        <div th:if="${loggedInUser}">
+            <div th:replace="~{user/sidebar :: sidebar}"></div>
+        </div>
+        <div class="pl-64 pt-20">
+            <h1 class="text-5xl">Welcome on your Dashboard <span th:text="${loggedInUser.displayName}"></span></h1>
+        </div>
+    </div>
+</body>
+
+</html>
