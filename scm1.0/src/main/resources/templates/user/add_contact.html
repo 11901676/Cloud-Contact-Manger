@@ -3,7 +3,7 @@
 <!-- This is the about page that extends the base HTML template. -->
 
 <head>
-    <title th:text="${loggedInUser.displayName} + ' | Dashboard'">Dashboard Page</title>
+    <title>Add Contact</title>
 </head>
 
 <body>
@@ -12,7 +12,10 @@
             <div th:replace="~{user/sidebar :: sidebar}"></div>
         </div>
         <div class="sm:pl-64 pt-20 flex flex-col items-center justify-center">
-            <h1 class="text-5xl">Welcome on your Dashboard <span th:text="${loggedInUser.displayName}"></span></h1>
+            <div class="grid grid-cols-12">
+                <div class="col-span-3"></div>
+                <div class="col-span-12 md:col-span-6">form</div>
+            </div>
         </div>
     </div>
 </body>
