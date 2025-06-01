@@ -32,8 +32,9 @@ public class Contact {
 
     @Column(length = 1000)
     private String desctiption;
-    private String favourite;
+    private boolean favourite;
     private String linkedInLink;
+    private String websiteLink;
 
 
     //Each contact belongs to one user but one user can have many contacts.

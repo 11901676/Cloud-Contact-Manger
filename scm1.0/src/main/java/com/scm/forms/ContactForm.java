@@ -16,8 +16,12 @@ public class ContactForm {
     private String phoneNumber;
     private String address;
     private String description;
-    private boolean favorite;
+    private boolean isFavouriteContact;
     private String websiteLink;
     private String linkedInLink;
 
+    public boolean getIsFavouriteContact()
+    {
+        return isFavouriteContact;
+    }
 }
