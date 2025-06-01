@@ -7,12 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.scm.forms.ContactForm;
 import com.scm.services.ContactService;
 import com.scm.services.UserService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,7 +37,17 @@ public class ContactController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String saveContact(@ModelAttribute ContactForm contactForm, Authentication authentication) {
+    public String saveContact(@Valid @ModelAttribute ContactForm contactForm, BindingResult result, Authentication authentication, HttpSession httpSession) {
+
+        if(result.hasErrors())
+        {
+            httpSession.setAttribute("message", Message.builder()
+            .content("Please correct the following errors")
+            .type(MessageType.red)
+            .build());
+            return "user/add_contact";
+        }
+
         String username = LoginHelper.getLoggedInUserEmail(authentication);
 
         User user = userService.getUserByEmail(username);
@@ -56,6 +70,10 @@ public class ContactController {
 
         System.out.println(contactForm.toString());
         
+        httpSession.setAttribute("message", Message.builder()
+            .content("Your contact has been added successfully")
+            .type(MessageType.green)
+            .build());
 
         return "redirect:/user/contacts/add";
     }
