@@ -45,13 +45,17 @@ public class ContactController {
         contact.setPhoneNumber(contactForm.getPhoneNumber());
         contact.setAddress(contactForm.getAddress());
         contact.setDesctiption(contactForm.getDescription());
-        contact.setFavourite(contactForm.getIsFavouriteContact());
+        contact.setFavourite(contactForm.isFavourite());
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
 
         contactService.save(contact);
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("Showing data fetched from contact form");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-        System.out.println(contactForm);
+        System.out.println(contactForm.toString());
+        
 
         return "redirect:/user/contacts/add";
     }
