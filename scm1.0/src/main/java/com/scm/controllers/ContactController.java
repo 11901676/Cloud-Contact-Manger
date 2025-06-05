@@ -3,6 +3,8 @@ package com.scm.controllers;
 import com.scm.entities.Contact;
 import com.scm.entities.User;
 import com.scm.helpers.*;
+
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.scm.forms.ContactForm;
 import com.scm.services.ContactService;
 import com.scm.services.UserService;
+import com.scm.services.imageService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -28,6 +31,11 @@ public class ContactController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private imageService imageService;
+
+    private Logger logger;
 
     @RequestMapping("/add")
     public String addContactView(Model model) {
@@ -51,6 +59,10 @@ public class ContactController {
         String username = LoginHelper.getLoggedInUserEmail(authentication);
 
         User user = userService.getUserByEmail(username);
+        
+        //logger.info("file Information: {}", contactForm.getContactImage().getOriginalFilename());
+
+        String fileURL = imageService.uploadImage(contactForm.getContactImage());
 
         Contact contact = new Contact();
         contact.setUser(user);
@@ -62,8 +74,9 @@ public class ContactController {
         contact.setFavourite(contactForm.isFavourite());
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
-
+        contact.setPicture(fileURL);
         contactService.save(contact);
+        
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Showing data fetched from contact form");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
