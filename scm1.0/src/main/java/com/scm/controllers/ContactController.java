@@ -4,6 +4,8 @@ import com.scm.entities.Contact;
 import com.scm.entities.User;
 import com.scm.helpers.*;
 
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -35,7 +37,7 @@ public class ContactController {
     @Autowired
     private imageService imageService;
 
-    private Logger logger;
+    private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());;
 
     @RequestMapping("/add")
     public String addContactView(Model model) {
@@ -60,9 +62,10 @@ public class ContactController {
 
         User user = userService.getUserByEmail(username);
         
-        //logger.info("file Information: {}", contactForm.getContactImage().getOriginalFilename());
+        logger.info("file Information: {}", contactForm.getContactImage().getOriginalFilename());
 
-        String fileURL = imageService.uploadImage(contactForm.getContactImage());
+        String filename = UUID.randomUUID().toString();
+        String fileURL = imageService.uploadImage(contactForm.getContactImage(), filename);
 
         Contact contact = new Contact();
         contact.setUser(user);
@@ -75,6 +78,7 @@ public class ContactController {
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
         contact.setPicture(fileURL);
+        contact.setCloudinaryImagePublicId(filename);
         contactService.save(contact);
         
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

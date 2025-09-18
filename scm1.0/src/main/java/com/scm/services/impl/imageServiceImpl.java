@@ -23,14 +23,12 @@ public class imageServiceImpl implements imageService{
     }
 
     @Override
-    public String uploadImage(MultipartFile contactImage) {
-        String fileName = UUID.randomUUID().toString();
-
+    public String uploadImage(MultipartFile contactImage, String fileName) {
         try {
             byte data[] = new byte[contactImage.getInputStream().available()];
             contactImage.getInputStream().read(data);
             cloudinary.uploader().upload(data, ObjectUtils.asMap(
-                "public_id", contactImage.getOriginalFilename()
+                "public_id", fileName
             ));
         } catch (IOException e) {
             // TODO Auto-generated catch block

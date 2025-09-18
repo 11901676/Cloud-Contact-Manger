@@ -11,7 +11,7 @@ import com.cloudinary.utils.ObjectUtils;
 public class AppConfig {
     @Value("${cloudinary.cloud.name}")
     private String cloudName;
-
+    
     @Value("${cloudinary.api.key}")
     private String apiKey;
 

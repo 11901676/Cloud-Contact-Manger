@@ -35,6 +35,7 @@ public class Contact {
     private boolean favourite;
     private String linkedInLink;
     private String websiteLink;
+    private String cloudinaryImagePublicId;
 
 
     //Each contact belongs to one user but one user can have many contacts.
