@@ -4,8 +4,10 @@ import com.scm.entities.Contact;
 import com.scm.entities.User;
 import com.scm.helpers.*;
 
+import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.boot.model.source.internal.hbm.Helper;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -94,5 +96,18 @@ public class ContactController {
 
         return "redirect:/user/contacts/add";
     }
+    
+    @RequestMapping
+    public String viewContacts(Model model, Authentication authentication)
+    {
+        String username = LoginHelper.getLoggedInUserEmail(authentication);
 
+        User user = userService.getUserByEmail(username);
+
+        List<Contact> contacts = contactService.getByUser(user);
+
+        model.addAttribute("contacts", contacts);
+
+        return "user/contacts";
+    }
 }

@@ -3,6 +3,7 @@ package com.scm.services;
 import java.util.List;
 
 import com.scm.entities.Contact;
+import com.scm.entities.User;
 import com.scm.helpers.ResourceNotFoundException;
 
 public interface ContactService {
@@ -26,5 +27,7 @@ public interface ContactService {
 
     //search contact by user id
     List<Contact> getByUserId(String userId);
+
+    List<Contact> getByUser(User user);
     
 }
