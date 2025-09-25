@@ -2,6 +2,8 @@ package com.scm.services;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.scm.entities.Contact;
 import com.scm.entities.User;
 import com.scm.helpers.ResourceNotFoundException;
@@ -28,6 +30,6 @@ public interface ContactService {
     //search contact by user id
     List<Contact> getByUserId(String userId);
 
-    List<Contact> getByUser(User user);
+    Page<Contact> getByUser(User user, int page, int size, String sortFied, String sortDirection);
     
 }
