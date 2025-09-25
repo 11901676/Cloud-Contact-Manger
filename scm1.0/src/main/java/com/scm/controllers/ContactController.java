@@ -113,4 +113,41 @@ public class ContactController {
 
         return "user/contacts";
     }
+
+    @RequestMapping("/search")
+    public String searchHandler(
+        @RequestParam("field") String field,
+        @RequestParam("keyword") String value,
+        @RequestParam(value="size", defaultValue = AppConstants.PAGE_SIZE +"") int size,
+        @RequestParam(value="page", defaultValue = "0") int page,
+        @RequestParam(value="sortBy", defaultValue = "name") String sortBy,
+        @RequestParam(value="direction", defaultValue = "asc") String direction,
+        Model model,
+        Authentication authentication)
+    {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        logger.info("Field {}, Keyword {}", field, value);
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+        Page<Contact> pageContact = null;
+
+        var user =  userService.getUserByEmail(com.scm.helpers.LoginHelper.getLoggedInUserEmail(authentication));
+
+        if(field.equalsIgnoreCase("name"))
+        {
+            pageContact = contactService.searchByName(value, size, page, sortBy, direction, user);
+        }
+        else if(field.equalsIgnoreCase("email"))
+        {
+            pageContact = contactService.searchByEmail(value, size, page, sortBy, direction, user);
+        }
+        else if(field.equalsIgnoreCase("phone"))
+        {
+            pageContact = contactService.searchByPhone(value, size, page, sortBy, direction, user);
+        }
+
+        model.addAttribute("pageContact", pageContact);
+
+        return "user/search";
+    }
 }

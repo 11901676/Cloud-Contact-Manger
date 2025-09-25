@@ -3,7 +3,7 @@
 <!-- This is the about page that extends the base HTML template. -->
 
 <head>
-    <title th:text="${loggedInUser.displayName} + ' | Contacts'">All your contacts page</title>
+    <title th:text="${loggedInUser.displayName} + ' | Dashboard'">Search Page</title>
 </head>
 
 <body>
@@ -99,6 +99,8 @@
 
                                         <a th:href="@{*{linkedInLink}}" target="_blank">
                                             <i class="fa-brands fa-linkedin w-6 h-6"></i></a>
+
+
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
