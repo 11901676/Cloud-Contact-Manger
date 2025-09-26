@@ -20,9 +20,7 @@
                         <div
                             class="flex p-5 items-center justify-start flex-column flex-wrap md:flex-row space-x-3 space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
                             <div>
-                                <select 
-                                th:field="*{field}"
-                                    id="field"
+                                <select th:field="*{field}" id="field"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option selected value="">Select Field of Search</option>
                                     <option value="name">Name</option>
@@ -45,7 +43,8 @@
                                     class="block ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Search for users">
                             </div>
-                            <button type="submit" class="px-3 py-2 bg-gray-800 dark:bg-gray-800 text-white rounded">Search</button>
+                            <button type="submit"
+                                class="px-3 py-2 bg-gray-800 dark:bg-gray-800 text-white rounded">Search</button>
                         </div>
                     </form>
 
@@ -105,14 +104,17 @@
                                     <div>
                                         <a href=""><i class="fa-solid fa-trash h-6 w-6"></i></a>
                                         <a href=""><i class="fa-solid fa-pen h-6 w-6"></i></a>
-                                        <a href=""><i class="fa-solid fa-eye h-6 w-6"></i></a>
+                                        <button th:data_id="${c.id}"
+                                            th:onclick="loadContactData(this.getAttribute('data_id'))"><i
+                                                class="fa-solid fa-eye h-6 w-6"></i></button>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <div th:unless="${pageContact.isEmpty}" class="pagination_component, p-5 text-center bg-white dark:bg-gray-800">
+                    <div th:unless="${pageContact.isEmpty}"
+                        class="pagination_component, p-5 text-center bg-white dark:bg-gray-800">
                         <nav aria-label="Page navigation example">
                             <ul class="inline-flex -space-x-px text-base h-10">
                                 <li th:unless="${pageContact.first}">
@@ -136,15 +138,18 @@
                         </nav>
                     </div>
 
-                    <div th:if="${pageContact.isEmpty}" class="p-9 text-center bg-white dark:bg-gray-800 text-red-500 dark:text-red-400">
+                    <div th:if="${pageContact.isEmpty}"
+                        class="p-9 text-center bg-white dark:bg-gray-800 text-red-500 dark:text-red-400">
                         <ul>
                             <li> No Records Found.. </li>
                         </ul>
-
                     </div>
                 </div>
             </div>
+            <div th:replace="~{user/contact_modal :: contact_modal}"></div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+        <script th:src="@{'/js/contacts.js'}"></script>
     </div>
 </body>
 
