@@ -16,6 +16,7 @@
 
             <div class="contacts_container p-5">
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <div th:replace="~{message :: messagebox}"></div>
                     <form th:object="${contactSearchForm}" th:action="@{'/user/contacts/search'}">
                         <div
                             class="flex p-5 items-center justify-start flex-column flex-wrap md:flex-row space-x-3 space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
@@ -102,11 +103,16 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div>
-                                        <a href=""><i class="fa-solid fa-trash h-6 w-6"></i></a>
+                                        <!-- <a th:href="@{'/user/contacts/delete/'+*{id}}"><i class="fa-solid fa-trash h-6 w-6"></i></a> -->
+                                        <button th:data_id="${c.id}"
+                                            th:onclick="deleteContact(this.getAttribute('data_id'))">
+                                            <i class="fa-solid fa-trash h-6 w-6"></i>
+                                        </button>
                                         <a href=""><i class="fa-solid fa-pen h-6 w-6"></i></a>
                                         <button th:data_id="${c.id}"
-                                            th:onclick="loadContactData(this.getAttribute('data_id'))"><i
-                                                class="fa-solid fa-eye h-6 w-6"></i></button>
+                                            th:onclick="loadContactData(this.getAttribute('data_id'))">
+                                            <i class="fa-solid fa-eye h-6 w-6"></i>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -147,9 +153,11 @@
                 </div>
             </div>
             <div th:replace="~{user/contact_modal :: contact_modal}"></div>
+            <div th:replace="~{user/delete_modal :: delete_modal_fragment}"></div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         <script th:src="@{'/js/contacts.js'}"></script>
+        <script th:src="@{'/js/delete_contact.js'}"></script>
     </div>
 </body>
 

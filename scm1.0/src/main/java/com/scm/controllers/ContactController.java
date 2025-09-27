@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.scm.forms.ContactForm;
@@ -98,7 +99,7 @@ public class ContactController {
     
     @RequestMapping
     public String viewContacts(@RequestParam(value = "page", defaultValue =  "0") int page,
-    @RequestParam(value = "size", defaultValue = AppConstants.PAGE_SIZE + "5") int size,
+    @RequestParam(value = "size", defaultValue = AppConstants.PAGE_SIZE + "") int size,
     @RequestParam(value = "sortBy", defaultValue = "name") String sortBy,
     @RequestParam(value = "direction", defaultValue = "asc") String direction,
      Model model, Authentication authentication)
@@ -154,5 +155,18 @@ public class ContactController {
         model.addAttribute("pageSize", AppConstants.PAGE_SIZE);
 
         return "user/search";
+    }
+
+    @RequestMapping("/delete/{contactId}")
+    public String deleteConact(@PathVariable("contactId") String contactId,
+    HttpSession httpSession)
+    {
+        contactService.deleteContact(contactId);
+        httpSession.setAttribute("message",
+        Message.builder()
+        .content("Contact Deleted Successfully.")
+        .type(MessageType.green)
+        .build());
+        return "redirect:/user/contacts";
     }
 }
