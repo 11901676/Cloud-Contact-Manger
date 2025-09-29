@@ -3,7 +3,7 @@
 <!-- This is the about page that extends the base HTML template. -->
 
 <head>
-    <title>Add Contact</title>
+    <title>Update Contact</title>
 </head>
 
 <body>
@@ -18,11 +18,9 @@
                     <div
                         class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                         <div th:replace="message::messagebox"></div>
-                        <h1 class="text-3xl font-semibold">Add Contact</h1>
-                        <p>Your contacts will be on cloud...</p>
+                        <h1 class="text-3xl font-semibold">Update Contact</h1>
 
-                        <form action="" class="mt-8" method="post" th:object="${contactForm}"
-                            th:action="@{'/user/contacts/add'}"
+                        <form th:action="@{'/user/contacts/update/' + ${contactId}}" class="mt-8" method="post" th:object="${contactForm}"
                             enctype="multipart/form-data">
                             <!-- Contact Name -->
                             <div class="mb-3">
@@ -129,10 +127,7 @@
                             
                             <!-- Image preview -->
                             <img th:src = "*{picture}" class = "max-h-52 mx-auto rounded-lg shadow" id="uploaded_image_preview" alt = "">
-                            
-                            <p class="text-red-500" 
-                                th:if="${#fields.hasErrors('contactImage')}"
-                                th:errors="*{contactImage}">File size should be less than 2 MB</p>
+
                             
                             <!-- Social Links -->
                             <div class="flex space-x-3 mt-6 mb-3">
@@ -140,7 +135,7 @@
                                     <div class="mb-3">
                                         <div class="relative mb-6">
                                             <div
-                                                class="absolute inset-y-0 start-0 flex items-center ps-3.5pointer-events-none">
+                                                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                                                 <i class="fa-solid fa-globe"></i>
                                             </div>
                                             <input type="text" th:field="*{websiteLink}"
@@ -177,7 +172,7 @@
                             <!-- Buttons Section -->
                             <div class="mt-6 button-container text-center">
                                 <button type="submit"
-                                    class="px-3 py-2 !bg-black text-white dark:bg-blue-600 hover:dark:bg-blue-700 rounded">Add
+                                    class="px-3 py-2 !bg-black text-white dark:bg-blue-600 hover:dark:bg-blue-700 rounded">Update
                                     Contact</button>
 
                                 <button type="reset"
