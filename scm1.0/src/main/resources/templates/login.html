@@ -11,11 +11,15 @@
     <div class="grid grid-cols-12 justify-center mt-4">
       <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
       <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+        
         <div
           class="block border border-t-4 p-6 border-solid border-green-500 bg-white shadow-sm rounded-xl hover:bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800">
-          <div th:if="${param.error}" class="text-red-600 text-center my-3">
-            Invalid username and password.
+          
+          <div th:if="${param.badcredentials}" class="text-red-600 text-center my-3">
+            Invalid username or password.
           </div>
+          
+          <div th:if="${param.disabled}" th:replace="~{message :: messagebox}"></div>
 
           <div th:if="${param.logout}" class="text-green-600 text-center my-3">
             You have been logged out.
