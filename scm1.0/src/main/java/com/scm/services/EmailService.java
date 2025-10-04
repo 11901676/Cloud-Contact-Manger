@@ -6,4 +6,6 @@ public interface EmailService {
     void sendEmailWithHtml();
 
     void sendEmailWithAttachment();
+
+    void sendVerificationEmail(String to, String verificationLink);
 }

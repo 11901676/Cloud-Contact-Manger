@@ -55,7 +55,7 @@ public class User implements UserDetails{
     private String profilePic;
 
     //information
-    private boolean enabled = false;
+    private boolean enabled = true;
     private boolean emailVerified;
     private boolean phoneVerified;
 
@@ -71,6 +71,8 @@ public class User implements UserDetails{
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roleList = new ArrayList<>();
 
+    private String emailToken;
+    
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
         //list of roles[USER, ADMIN]

@@ -14,6 +14,7 @@ import com.scm.entities.User;
 import com.scm.helpers.AppConstants;
 import com.scm.helpers.ResourceNotFoundException;
 import com.scm.repositories.UserRepository;
+import com.scm.services.EmailService;
 import com.scm.services.UserService;
 
 @Service
@@ -21,6 +22,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    public EmailService emailService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -40,7 +44,18 @@ public class UserServiceImpl implements UserService {
         //Setting user role
         user.setRoleList(List.of(AppConstants.ROLE_USER));
 
-        return userRepository.save(user);
+        String emailToken = UUID.randomUUID().toString();
+
+        String verficationLink = com.scm.helpers.LoginHelper.getLinkForEmailVerification(emailToken);
+        
+        user.setEmailToken(emailToken);
+
+        User savedUser = userRepository.save(user);
+
+        emailService.sendVerificationEmail(user.getEmail(), verficationLink);
+
+        return savedUser;
+
     }
 
     @Override

@@ -41,4 +41,12 @@ public class LoginHelper {
         }
         return "User Email Can't be found";
     }
+
+    public static String getLinkForEmailVerification(String emailToken)
+    {
+        String link = "http://localhost:8081/auth/verify-email?token=" + emailToken;
+
+        return link;
+    }
+
 }
