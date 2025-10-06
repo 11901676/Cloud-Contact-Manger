@@ -15,11 +15,11 @@
             <h1 class="text-5xl flex flex-col items-center justify-center">Your contacts are here..</span></h1>
 
             <div class="contacts_container p-5">
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <div th:replace="~{message :: messagebox}"></div>
+                <div th:replace="~{message :: messagebox}"></div>
+                <div class="flex md:flex-row flex-col justify-between items-center px-4 bg-white dark:bg-gray-800">
                     <form th:object="${contactSearchForm}" th:action="@{'/user/contacts/search'}">
                         <div
-                            class="flex p-5 items-center justify-start flex-column flex-wrap md:flex-row space-x-3 space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
+                            class="flex p-5 items-center justify-start flex-column flex-wrap md:flex-row space-x-3 space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-800">
                             <div>
                                 <select th:field="*{field}" id="field"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -45,11 +45,19 @@
                                     placeholder="Search for users">
                             </div>
                             <button type="submit"
-                                class="px-3 py-2 bg-gray-800 dark:bg-gray-800 text-white rounded">Search</button>
+                                class="px-3 py-2 bg-gray-800 dark:bg-gray-700 text-white rounded">Search</button>
                         </div>
                     </form>
 
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <div>
+                        <button type="button" onclick="exportData()"
+                            class="px-3 py-2 bg-green-600 dark:bg-gren -600 text-white rounded"><i
+                                class="fa-solid fa-download"></i></button>
+                    </div>
+                </div>
+
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table id="contacts-table" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
@@ -122,7 +130,6 @@
                             </tr>
                         </tbody>
                     </table>
-
                     <div th:unless="${pageContact.isEmpty}"
                         class="pagination_component, p-5 text-center bg-white dark:bg-gray-800">
                         <nav aria-label="Page navigation example">
@@ -159,9 +166,20 @@
             <div th:replace="~{user/contact_modal :: contact_modal}"></div>
             <div th:replace="~{user/delete_modal :: delete_modal_fragment}"></div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/@linways/table-to-excel@1.0.4/dist/tableToExcel.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         <script th:src="@{'/js/contacts.js'}"></script>
         <script th:src="@{'/js/delete_contact.js'}"></script>
+        <script>
+            function exportData() {
+                //TableToExcel.convert(document.getElementById("contacts-table"));
+                //You can also provide options for filename and sheet name:
+                TableToExcel.convert(document.getElementById("contacts-table"), {
+                    name: "contacts.xlsx",
+                    sheet: { name: "Contacts Sheet" }
+                });
+            }
+        </script>
     </div>
 </body>
 
