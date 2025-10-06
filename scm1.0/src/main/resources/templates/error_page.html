@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content}, ~{::title})}">
+
+<head>
+    <title>Email Verification Failed</title>
+</head>
+
+<body
+    style="margin: 0; padding: 20px; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div id="content" class="justify-center flex pt-10">
+        <div class="container bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-300"
+            style="margin: 0; padding: 50px 40px; box-sizing: border-box; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); max-width: 500px; width: 100%; text-align: center;">
+
+            <div class="failure-icon"
+                style="padding: 0; box-sizing: border-box; width: 100px; height: 100px; margin: 0 auto 30px; background: linear-gradient(135deg, #bd0505, #b00505); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 60px; color: white;">
+                X
+            </div>
+
+            <div>
+                <h1 style="padding: 0; box-sizing: border-box; color: #cb422d; font-size: 32px; margin: 0 0 15px 0;">
+                    Verification Failed!</h1>
+
+                <p style="padding: 0; box-sizing: border-box; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
+                    Your email could not be verified! Please try registering again or contact support.</p>
+
+                <div>
+                    <a href="/register" class="btn"
+                        style="margin-bottom: 15px; box-sizing: border-box; display: inline-block; padding: 10px;padding-left: 15px; padding-right: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 50px; font-size: 16px; font-weight: 600;">
+                        Try Again</a> <br>
+                
+                    <a href="/contact" class="btn"
+                        style="margin: 0; box-sizing: border-box; display: inline-block; padding: 10px;padding-left: 15px; padding-right: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 50px; font-size: 16px; font-weight: 600;">
+                        Contact Support</a>
+                </div>
+            </div>
+
+            <div class="bg-red-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300"
+                style="margin-top: 1rem; border-radius: 0.75rem; padding: 1.5rem; text-align: left;">
+                <h3
+                    style="font-size: 1.125rem; line-height: 1.75rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center;">
+                    <svg style="width: 1.25rem; height: 1.25rem; margin-right: 0.5rem; color: #dc2626;"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    Possible Issue:
+                </h3>
+                <ul>
+
+                    <li style="display: flex; align-items: flex-start; margin-top: 0.75rem;">
+                        <span style="color: #dc2626; margin-right: 0.75rem; margin-top: 0.25rem;">•</span>
+                        <span>Invalid or corrupted token</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

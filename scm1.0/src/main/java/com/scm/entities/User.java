@@ -55,7 +55,7 @@ public class User implements UserDetails{
     private String profilePic;
 
     //information
-    private boolean enabled = true;
+    private boolean enabled = false;
     private boolean emailVerified;
     private boolean phoneVerified;
 
