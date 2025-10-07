@@ -1,14 +1,141 @@
 <!DOCTYPE html>
 <html lang="en" th:replace="~{base :: parent(~{::#content}, ~{::title})}">
 <!-- This is the about page that extends the base HTML template. -->
+
 <head>
     <title>About Us</title>
 </head>
+
 <body>
-    <div id = "content" class="pt-28 justify-center flex">
-        <h1>About Page</h1>
-        
+    <div id="content" class="justify-center flex-row">
+        <!-- Banner Section -->
+  <section class="bg-blue-600 dark:bg-blue-800 text-white py-20 animate__animated animate__fadeInDown">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">About Contact Manager</h2>
+      <p class="text-lg mb-8">Your trusted partner in contact management solutions</p>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="p-15 bg-white dark:bg-gray-900">
+    <div class="container mx-auto">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-300 animate__animated animate__fadeInUp">Our Story</h2>
+        <p class="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
+          Contact Manager was born from a simple idea: managing contacts shouldn't be complicated. 
+          Founded in 2020, we set out to create a platform that combines simplicity with powerful features, 
+          making contact management accessible to everyone.
+        </p>
+        <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+          Today, thousands of users trust us to keep their valuable contacts organized, secure, and 
+          accessible. We're committed to continuously improving our platform to meet the evolving needs 
+          of our users.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision Section -->
+  <section class="p-15 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div class="p-8 bg-white dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="text-center mb-6">
+            <i class="fas fa-bullseye text-blue-600 dark:text-blue-400 text-5xl mb-4"></i>
+            <h3 class="p-5 text-2xl font-bold mb-4 text-gray-900 dark:text-gray-300">Our Mission</h3>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            To empower individuals and businesses with intuitive, secure, and reliable contact management 
+            tools that simplify communication and enhance productivity in an increasingly connected world.
+          </p>
+        </div>
+        <div class="p-8 bg-white dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="text-center mb-6">
+            <i class="fas fa-eye text-blue-600 dark:text-blue-400 text-5xl mb-4"></i>
+            <h3 class="text-2xl font-bold mb-4 dark:text-white">Our Vision</h3>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            To become the world's most trusted and user-friendly contact management platform, setting 
+            new standards for security, accessibility, and user experience in digital contact organization.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values Section -->
+  <section class="p-15 bg-white dark:bg-gray-900">
+    <div class="container mx-auto text-center">
+      <h2 class="p-5 text-3xl font-bold mb-12 animate__animated animate__fadeInUp text-gray-900 dark:text-gray-300">Our Core Values</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-shield-alt text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Security First</h3>
+          <p class="text-gray-600 dark:text-gray-400">Your data privacy and security are our top priorities.</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-users text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">User-Centric</h3>
+          <p class="text-gray-600 dark:text-gray-400">We design every feature with our users' needs in mind.</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-lightbulb text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Innovation</h3>
+          <p class="text-gray-600 dark:text-gray-400">Constantly evolving to provide cutting-edge solutions.</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-handshake text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Reliability</h3>
+          <p class="text-gray-600 dark:text-gray-400">Dependable service you can count on 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="p-15 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto text-center">
+      <h2 class="p-5 text-3xl font-bold mb-12 text-gray-900 dark:text-gray-300 animate__animated animate__fadeInUp">Meet Our Team</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="p-6 bg-white dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="w-32 h-32 bg-blue-600 dark:bg-blue-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <i class="fas fa-user text-white text-5xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Dipesh Tiwari</h3>
+          <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">Lead Developer & Architect</p>
+          <p class="text-gray-600 dark:text-gray-400">Backend developer passionate about building secure and scalable applications, with expertise in Java and the Spring ecosystem.</p>
+        </div>
+        <div class="p-6 bg-white dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="w-32 h-32 bg-blue-600 dark:bg-blue-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <i class="fas fa-user text-white text-5xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Shiwangi Tiwari</h3>
+          <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">UI/UX Designer</p>
+          <p class="text-gray-600 dark:text-gray-400">Creative designer focused on crafting intuitive and user-friendly interfaces that turn complex problems into beautiful, simple designs.</p>
+        </div>
+        <div class="p-6 bg-white dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="w-32 h-32 bg-blue-600 dark:bg-blue-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <i class="fas fa-user text-white text-5xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Vimal Singh</h3>
+          <p class="text-blue-600 dark:text-blue-400 font-medium mb-2">Project Manager</p>
+          <p class="text-gray-600 dark:text-gray-400">Dedicated project manager ensuring features are delivered on time and meet the highest quality standards. Specializes in Agile methodologies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="bg-blue-600 dark:bg-blue-800 text-white py-20 animate__animated animate__fadeInUp">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Join Our Growing Community</h2>
+      <p class="text-lg mb-8">Experience the difference with Contact Manager today</p>
+      <a href="/login" class="bg-white dark:bg-gray-200 text-blue-600 dark:text-blue-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-gray-300 transition duration-300">Get Started Now</a>
+    </div>
+  </section>
+
     </div>
 
 </body>
+
 </html>

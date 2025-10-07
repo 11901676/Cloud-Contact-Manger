@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:replace="${title}">Login</title>
 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https:cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <link rel="stylesheet" data-th-href="@{/css/output.css}" />
 
@@ -21,29 +21,49 @@
 
 </head>
 
-<body class="bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-white">
-    <!--Common Header-->
-    <!-- If user is logged in => show him user navbar -->
-    <div th:if="${loggedInUser}">
-        <div th:replace="~{user/user_navbar :: user-navbar}"></div>
-    </div>
+<body class="bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col min-h-screen">
+    
+    <header>
+        <div th:if="${loggedInUser}">
+            <div th:replace="~{user/user_navbar :: user-navbar}"></div>
+        </div>
 
-    <!-- If user is not logged in => show him normal navbar -->
-    <div th:unless="${loggedInUser}">
-        <div th:replace="~{navbar :: navbar}"></div>
-    </div>
+        <div th:unless="${loggedInUser}">
+            <div th:replace="~{navbar :: navbar}"></div>
+        </div>
+    </header>
 
 
-    <!--Main Content-->
-    <div class="p-4">
+    <main class="flex-grow pt-20"> 
         <section th:replace="${content}"></section>
-    </div>
+    </main>
 
-    <!--Common footer-->
-    <footer class="flex justify-center">
-        <p>&copy; 2023 CC All rights reserved.</p>
+    <footer class="flex-row justify-center py-4">
+        <div class="container mx-auto text-center text-gray-900 dark:text-white">
+            <p class="mb-2">&copy; 2025 Contact Manager. All rights reserved.</p>
+            <div th:if="${currentPage != 'social' and loggedInUser.userName == null}" class="block mx-auto h-30 w-110 p-3 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300">
+                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-300">Follow Us</h3>
+                <div class="justify-center flex space-x-4">
+                    <a href="/socialMediaUnderDevelopmentPage" aria-label="Facebook"
+                        class="bg-blue-600 dark:bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-800 dark:hover:bg-blue-800 transition duration-300 transform hover:scale-110">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="/socialMediaUnderDevelopmentPage" aria-label="Twitter"
+                        class="bg-blue-550 dark:bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-700 dark:hover:bg-blue-700 transition duration-300 transform hover:scale-110">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="/socialMediaUnderDevelopmentPage" aria-label="LinkedIn"
+                        class="bg-blue-700 dark:bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-800 dark:hover:bg-blue-800 transition duration-300 transform hover:scale-110">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="/socialMediaUnderDevelopmentPage" aria-label="Instagram"
+                        class="bg-pink-600 dark:bg-pink-700 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-pink-800 dark:hover:bg-pink-800 transition duration-300 transform hover:scale-110">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-
         <script th:src="@{'/js/script.js'}">
         </script>
     </footer>

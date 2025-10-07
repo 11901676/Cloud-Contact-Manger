@@ -11,7 +11,7 @@
         <div th:if="${loggedInUser}">
             <div th:replace="~{user/sidebar :: sidebar}"></div>
         </div>
-        <div class="sm:pl-64 pt-20">
+        <div class="sm:pl-64">
             <div class="flex flex-col items-center justify-center">
                 <h1 class="text-5xl">Search Results</span></h1>
                 <p class="p-3" th:text="${pageContact.totalElements} + ' results found..'"></p>

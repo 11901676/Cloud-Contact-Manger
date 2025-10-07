@@ -102,4 +102,17 @@ public class PageController {
 
         return "redirect:/register";
     }
+
+    @RequestMapping("/underDevelopment")
+    public String underDevelopment(Model model) {
+        System.out.println("Under Development page accessed");
+        return "underDevelopment";
+    }
+
+    @RequestMapping("/socialMediaUnderDevelopmentPage")
+    public String socialMediaUnderDevelopment(Model model) {
+        System.out.println("Social Media Under Development page accessed");
+        model.addAttribute("currentPage", "social");
+        return "socialMediaUnderDevelopmentPage";
+    }
 }

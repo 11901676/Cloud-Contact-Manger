@@ -1,13 +1,192 @@
 <!DOCTYPE html>
 <html lang="en" th:replace="~{base :: parent(~{::#content}, ~{::title})}">
 <!-- This is the services page that extends the base HTML template. -->
+
 <head>
     <title>Services Page</title>
 </head>
+
 <body>
-    <div id="content" class="pt-28 flex justify-center">
-        <h1>Services Page</h1>
+    <div id="content" class="flex-row justify-center">
+
+  <!-- Main Services Section -->
+  <section class="p-15 bg-white dark:bg-gray-900">
+    <div class="container mx-auto text-center">
+      <h2 class="p-5 text-3xl font-bold mb-12 text-gray-900 dark:text-gray-300 animate__animated animate__fadeInUp">What We Offer</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-cloud text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Cloud Storage</h3>
+          <p class="text-gray-600 dark:text-gray-400">Store unlimited contacts securely in the cloud with automatic backups and synchronization across all your devices.</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-sync-alt text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Real-Time Sync</h3>
+          <p class="text-gray-600 dark:text-gray-400">Keep your contacts updated instantly across all platforms and devices with seamless real-time synchronization.</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-file-import text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Import & Export</h3>
+          <p class="text-gray-600 dark:text-gray-400">Easily import contacts from various sources and export them in multiple formats for maximum flexibility.</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-search text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Advanced Search</h3>
+          <p class="text-gray-600 dark:text-gray-400">Find any contact instantly with powerful search and filtering capabilities based on multiple criteria.</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-tags text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Smart Organization</h3>
+          <p class="text-gray-600 dark:text-gray-400">Organize contacts with custom tags, groups, and categories for efficient contact management.</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-share-alt text-blue-600 dark:text-blue-400 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-700 dark:text-gray-300">Contact Sharing</h3>
+          <p class="text-gray-600 dark:text-gray-400">Share contacts securely with team members and collaborate effectively on contact management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Features Section -->
+  <section class="p-15 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto">
+      <h2 class="p-5 text-3xl font-bold mb-12 text-center animate__animated animate__fadeInUp text-gray-900 dark:text-gray-300">Premium Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="p-8 bg-white dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300">
+          <div class="flex items-start">
+            <i class="fas fa-chart-line text-blue-600 dark:text-blue-400 text-3xl mr-4 mt-1"></i>
+            <div>
+              <h3 class="text-xl font-semibold mb-3 text-gray-700 dark:text-gray-300">Analytics & Insights</h3>
+              <p class="text-gray-600 dark:text-gray-400">Get detailed analytics on your contact database, interaction history, and engagement patterns to make informed decisions.</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-8 bg-white dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300">
+          <div class="flex items-start">
+            <i class="fas fa-robot text-blue-600 dark:text-blue-400 text-3xl mr-4 mt-1"></i>
+            <div>
+              <h3 class="text-xl font-semibold mb-3 text-gray-700 dark:text-gray-300">AI-Powered Suggestions</h3>
+              <p class="text-gray-600 dark:text-gray-400">Leverage artificial intelligence to get smart suggestions for duplicate contacts, missing information, and more.</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-8 bg-white dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300">
+          <div class="flex items-start">
+            <i class="fas fa-bell text-blue-600 dark:text-blue-400 text-3xl mr-4 mt-1"></i>
+            <div>
+              <h3 class="text-xl font-semibold mb-3 text-gray-600 dark:text-gray-300">Smart Reminders</h3>
+              <p class="text-gray-700 dark:text-gray-400">Set custom reminders for birthdays, anniversaries, and follow-ups to never miss an important date.</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-8 bg-white dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300">
+          <div class="flex items-start">
+            <i class="fas fa-plug text-blue-600 dark:text-blue-400 text-3xl mr-4 mt-1"></i>
+            <div>
+              <h3 class="text-xl font-semibold mb-3 text-gray-700 dark:text-gray-300">Integrations</h3>
+              <p class="text-gray-600 dark:text-gray-400">Connect with your favorite tools and platforms including email clients, CRM systems, and productivity apps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Plans Section -->
+  <section class="p-10 bg-white dark:bg-gray-900">
+    <div class="container mx-auto text-center">
+      <h2 class="p-5 text-3xl font-bold mb-12 text-gray-900 dark:text-gray-300 animate__animated animate__fadeInUp">Choose Your Plan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="p-8 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <h3 class="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">Basic</h3>
+          <p class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-6">Free</p>
+          <ul class="text-left mb-8 space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 dark:text-green-400 mr-2 mt-1"></i>
+              <span class="text-gray-700 dark:text-gray-300">Up to 500 contacts</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 dark:text-green-400 mr-2 mt-1"></i>
+              <span class="text-gray-700 dark:text-gray-300">Basic search & filtering</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 dark:text-green-400 mr-2 mt-1"></i>
+              <span class="text-gray-700 dark:text-gray-300">Mobile app access</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 dark:text-green-400 mr-2 mt-1"></i>
+              <span class="text-gray-700 dark:text-gray-300">Email support</span>
+            </li>
+          </ul>
+          <a href="/login" class="bg-blue-600 dark:bg-blue-700 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 transition duration-300 inline-block">Get Started</a>
+        </div>
+        <div class="p-8 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="bg-yellow-400 dark:bg-yellow-500 text-blue-600 dark:text-blue-900 text-xs font-bold px-3 py-1 rounded-full inline-block mb-2">POPULAR</div>
+          <h3 class="text-2xl font-bold mb-4">Professional</h3>
+          <p class="text-4xl font-bold mb-6">$9.99<span class="text-lg">/month</span></p>
+          <ul class="text-left mb-8 space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-check text-yellow-400 dark:text-yellow-300 mr-2 mt-1"></i>
+              <span>Unlimited contacts</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-yellow-400 dark:text-yellow-300 mr-2 mt-1"></i>
+              <span>Advanced search & analytics</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-yellow-400 dark:text-yellow-300 mr-2 mt-1"></i>
+              <span>AI-powered features</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-yellow-400 dark:text-yellow-300 mr-2 mt-1"></i>
+              <span>Priority support</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-yellow-400 dark:text-yellow-300 mr-2 mt-1"></i>
+              <span>All integrations</span>
+            </li>
+          </ul>
+          <a href="/login" class="bg-blue-600 dark:bg-blue-700 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 transition duration-300 inline-block">Choose Plan</a>
+        </div>
+        <div class="p-8 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <h3 class="text-2xl font-bold mb-4 text-gray-700 dark:text-gray-300">Enterprise</h3>
+          <p class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-6">Custom</p>
+          <ul class="text-left mb-8 space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 dark:text-green-400 mr-2 mt-1"></i>
+              <span class="text-gray-700 dark:text-gray-300">Everything in Professional</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 dark:text-green-400 mr-2 mt-1"></i>
+              <span class="text-gray-700 dark:text-gray-300">Custom integrations</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 dark:text-green-400 mr-2 mt-1"></i>
+              <span class="text-gray-700 dark:text-gray-300">Dedicated account manager</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 dark:text-green-400 mr-2 mt-1"></i>
+              <span class="text-gray-700 dark:text-gray-300">24/7 phone support</span>
+            </li>
+          </ul>
+          <a href="/contact" class="bg-blue-600 dark:bg-blue-700 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 dark:hover:bg-blue-800 transition duration-300 inline-block">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="bg-blue-600 dark:bg-blue-800 text-white py-20 animate__animated animate__fadeInUp">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+      <p class="text-lg mb-8">Choose the plan that's right for you and start managing contacts like a pro</p>
+      <a href="/login" class="bg-white dark:bg-gray-200 text-blue-600 dark:text-blue-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-gray-300 transition duration-300">Start Free Trial</a>
+    </div>
+  </section>
+
         
     </div>
 </body>
+
 </html>
