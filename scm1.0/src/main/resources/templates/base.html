@@ -34,14 +34,14 @@
     </header>
 
 
-    <main class="flex-grow pt-20"> 
+    <main class="pt-16"> 
         <section th:replace="${content}"></section>
     </main>
 
     <footer class="flex-row justify-center py-4">
         <div class="container mx-auto text-center text-gray-900 dark:text-white">
             <p class="mb-2">&copy; 2025 Contact Manager. All rights reserved.</p>
-            <div th:if="${currentPage != 'social' and loggedInUser.userName == null}" class="block mx-auto h-30 w-110 p-3 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300">
+            <div th:unless="${loggedInUser}" class="block mx-auto h-30 w-110 p-3 bg-gray-100 dark:bg-gray-700 rounded shadow hover:shadow-lg transition duration-300">
                 <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-300">Follow Us</h3>
                 <div class="justify-center flex space-x-4">
                     <a href="/socialMediaUnderDevelopmentPage" aria-label="Facebook"
@@ -57,7 +57,7 @@
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="/socialMediaUnderDevelopmentPage" aria-label="Instagram"
-                        class="bg-pink-600 dark:bg-pink-700 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-pink-800 dark:hover:bg-pink-800 transition duration-300 transform hover:scale-110">
+                        class="bg-pink-600 dark:bg-pink-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-pink-800 dark:hover:bg-pink-800 transition duration-300 transform hover:scale-110">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>

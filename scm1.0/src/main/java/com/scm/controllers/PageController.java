@@ -32,24 +32,28 @@ public class PageController {
     @RequestMapping("/home")
     public String home(Model model) {
         System.out.println("Home page accessed");
+        model.addAttribute("currentPage", "home");
         return "home";
     }
 
     @RequestMapping("/about")
     public String about(Model model) {
         System.out.println("About page accessed");
+        model.addAttribute("currentPage", "about");
         return "about";
     }
 
     @RequestMapping("/services")
     public String services(Model model) {
         System.out.println("Services page accessed");
+        model.addAttribute("currentPage", "services");
         return "services";
     }
 
     @RequestMapping("/contact")
     public String contact(Model model) {
         System.out.println("Contact page accessed");
+        model.addAttribute("currentPage", "contact");
         return "contact";
     }
 
